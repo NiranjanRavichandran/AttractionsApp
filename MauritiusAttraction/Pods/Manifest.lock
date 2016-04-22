@@ -1,0 +1,19 @@
+PODS:
+  - Bolts/Tasks (1.7.0)
+  - Parse (1.13.0):
+    - Bolts/Tasks (~> 1.6)
+  - SKPhotoBrowser (1.8.1)
+  - UNAlertView (0.1.1)
+
+DEPENDENCIES:
+  - Parse (~> 1.13)
+  - SKPhotoBrowser (~> 1.8)
+  - UNAlertView (~> 0.1)
+
+SPEC CHECKSUMS:
+  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
+  SKPhotoBrowser: 2f70e6f1df20ab5de832461b93b97e1d6ba5fb60
+  UNAlertView: fc58ca04357a5e8e7e1eb2803fc8152a89e9ce39
+
+COCOAPODS: 0.39.0

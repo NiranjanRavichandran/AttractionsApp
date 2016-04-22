@@ -1,0 +1,9 @@
+platform :ios, '8.0'
+
+use_frameworks!
+
+target 'MauritiusAttraction' do
+	pod 'Parse', '~> 1.13'
+	pod 'UNAlertView', '~> 0.1'
+	pod 'SKPhotoBrowser', '~> 1.8'
+end
