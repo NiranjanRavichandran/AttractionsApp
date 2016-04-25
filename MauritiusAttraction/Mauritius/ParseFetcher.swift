@@ -131,4 +131,16 @@ class ParseFetcher {
             }
         }
     }
+    
+    //Fetch object by id 
+    func getObjectByID(objectID: String, className: String, completion: (status: Bool, rseponse: Beach)-> Void){
+        
+        let query = PFQuery(className: className)
+        query.getObjectInBackgroundWithId(objectID) { (responseObject, responseError) in
+            if let response = responseObject {
+                completion(status: true, rseponse: Beach(parseObject: response))
+            }
+        }
+    }
+    
 }

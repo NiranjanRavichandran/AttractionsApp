@@ -168,6 +168,7 @@ class PhotosViewController: UIViewController, MFMailComposeViewControllerDelegat
             return
         }
         if index < count {
+            self.markFavorites()
             self.activityIndicator.startAnimating()
             self.imageView.alpha = 0.6
             self.previousButton.userInteractionEnabled = true
@@ -193,7 +194,7 @@ class PhotosViewController: UIViewController, MFMailComposeViewControllerDelegat
         imageBrowser.setCurrentPage(false)
         index -= 1
         if index >= 0 {
-            
+            self.markFavorites()
             self.activityIndicator.startAnimating()
             self.imageView.alpha = 0.6
             self.nextButton.userInteractionEnabled = true
@@ -213,6 +214,16 @@ class PhotosViewController: UIViewController, MFMailComposeViewControllerDelegat
             self.previousButton.userInteractionEnabled = false
             self.previousButton.alpha = 0.8
             self.imageView.removeGestureRecognizer(rightSwipe)
+        }
+    }
+    
+    func markFavorites() {
+        if currentFavs != nil {
+            if currentFavs!.contains(currentObjects![index].objectId!) {
+                self.favouriteButton.setImage(UIImage(named: "like-filled.png"), forState: .Normal)
+            }else {
+                self.favouriteButton.setImage(UIImage(named: "like.png"), forState: .Normal)
+            }
         }
     }
 
@@ -296,6 +307,7 @@ class PhotosViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     //Adding favourites
     func favouriteAction() {
+        favouriteButton.setImage(UIImage(named: "like-filled.png"), forState: .Normal)
         let userDefaults = NSUserDefaults.standardUserDefaults()
         guard let email = userDefaults.objectForKey("username") as? String else {
             let alertView = UNAlertView(title: "Alert", message: "Please add your email to add favourites")
@@ -402,6 +414,7 @@ class PhotosViewController: UIViewController, MFMailComposeViewControllerDelegat
                 if favroites != nil {
                     if let favs = favroites?.first?["ImageId"] as? [String] {
                         self.currentFavs = favs
+                        self.markFavorites()
                     }
                 }
             })

@@ -131,7 +131,20 @@ class RearViewController: UITableViewController {
         if let item = categories?[indexPath.row].objectId {
             mainVC.currentObjectId = item
             //print("#### passed on Id \(item)")
-            mainVC.newTitle = categories?[indexPath.row].name
+            switch APP_DEFAULT_LANGUAGE {
+            case .English:
+                mainVC.newTitle = categories?[indexPath.row].name
+            case .Chinese:
+                mainVC.newTitle = categories?[indexPath.row].chinese
+            case .Italian:
+                mainVC.newTitle = categories?[indexPath.row].italian
+            case .German:
+                mainVC.newTitle = categories?[indexPath.row].german
+            case .French:
+                mainVC.newTitle = categories?[indexPath.row].french
+            }
+
+            
             newFrontViewController = UINavigationController(rootViewController: mainVC)
             revealViewController().pushFrontViewController(newFrontViewController, animated: true)
         }
@@ -161,10 +174,11 @@ class RearViewController: UITableViewController {
     
     //Favourites page
     func favouritesPage() {
-        let mainVC = MainViewController()
-        mainVC.title = "Favourites"
-        mainVC.currentObjectId = " "
-        let newFrontViewController = UINavigationController(rootViewController: mainVC)
+//        let mainVC = MainViewController()
+//        mainVC.title = "Favourites"
+//        mainVC.currentObjectId = " "
+        let favsVC = FavsViewController()
+        let newFrontViewController = UINavigationController(rootViewController: favsVC)
         revealViewController().pushFrontViewController(newFrontViewController, animated: true)
     }
     

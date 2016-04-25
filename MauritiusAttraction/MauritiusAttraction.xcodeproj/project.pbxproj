@@ -13,6 +13,9 @@
 		420F35621C30C5AF00864B22 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 420F35601C30C5AF00864B22 /* SettingsViewController.xib */; };
 		420F35651C31E25E00864B22 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420F35631C31E25E00864B22 /* SettingsTableViewCell.swift */; };
 		420F35661C31E25E00864B22 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 420F35641C31E25E00864B22 /* SettingsTableViewCell.xib */; };
+		42528BCF1CCBDCF00014935A /* FavsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42528BCE1CCBDCF00014935A /* FavsViewController.swift */; };
+		42528BD21CCC1B150014935A /* FavsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42528BD01CCC1B150014935A /* FavsCollectionViewCell.swift */; };
+		42528BD31CCC1B150014935A /* FavsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42528BD11CCC1B150014935A /* FavsCollectionViewCell.xib */; };
 		427645921CB43B4500A6D831 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427645911CB43B4500A6D831 /* Parse.framework */; };
 		427645941CB43B4C00A6D831 /* Pods_MauritiusAttraction.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427645931CB43B4C00A6D831 /* Pods_MauritiusAttraction.framework */; };
 		427645961CB43B5200A6D831 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 427645951CB43B5200A6D831 /* Bolts.framework */; };
@@ -68,6 +71,9 @@
 		420F35601C30C5AF00864B22 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		420F35631C31E25E00864B22 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		420F35641C31E25E00864B22 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		42528BCE1CCBDCF00014935A /* FavsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavsViewController.swift; sourceTree = "<group>"; };
+		42528BD01CCC1B150014935A /* FavsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FavsCollectionViewCell.swift; path = ../FavsCollectionViewCell.swift; sourceTree = "<group>"; };
+		42528BD11CCC1B150014935A /* FavsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FavsCollectionViewCell.xib; path = ../FavsCollectionViewCell.xib; sourceTree = "<group>"; };
 		4276458D1CB4374C00A6D831 /* MauritiusAttraction-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MauritiusAttraction-Bridging-Header.h"; sourceTree = "<group>"; };
 		427645911CB43B4500A6D831 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../../Library/Developer/Xcode/DerivedData/MauritiusAttraction-gjynxqiubwogeugcfdhnljalrexh/Build/Products/Debug-iphonesimulator/Parse.framework"; sourceTree = "<group>"; };
 		427645931CB43B4C00A6D831 /* Pods_MauritiusAttraction.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_MauritiusAttraction.framework; path = "../../../../Library/Developer/Xcode/DerivedData/MauritiusAttraction-gjynxqiubwogeugcfdhnljalrexh/Build/Products/Debug-iphonesimulator/Pods_MauritiusAttraction.framework"; sourceTree = "<group>"; };
@@ -227,6 +233,7 @@
 		42AA1A371C239C35004174CA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				42528BCE1CCBDCF00014935A /* FavsViewController.swift */,
 				42AA1A641C277779004174CA /* RearViewController.swift */,
 				420F355F1C30C5AF00864B22 /* SettingsViewController.swift */,
 				42AA1A761C28C332004174CA /* ParseFetcher.swift */,
@@ -239,6 +246,7 @@
 		42AA1A381C239C55004174CA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				42528BD01CCC1B150014935A /* FavsCollectionViewCell.swift */,
 				42FA1C1D1C49F5AB0019C48A /* LanguageLabel.swift */,
 				42FA1C191C49F23F0019C48A /* LanguageCell.swift */,
 				420F35631C31E25E00864B22 /* SettingsTableViewCell.swift */,
@@ -286,6 +294,7 @@
 				42BF84F91C2F176900FA49F3 /* PhotosViewController.xib */,
 				420F35641C31E25E00864B22 /* SettingsTableViewCell.xib */,
 				420F35601C30C5AF00864B22 /* SettingsViewController.xib */,
+				42528BD11CCC1B150014935A /* FavsCollectionViewCell.xib */,
 			);
 			name = "Storyboard&Xibs";
 			sourceTree = "<group>";
@@ -373,6 +382,7 @@
 			files = (
 				42AA1A751C28A18E004174CA /* ImageCollectionCell.xib in Resources */,
 				42AA1A301C239C21004174CA /* LaunchScreen.storyboard in Resources */,
+				42528BD31CCC1B150014935A /* FavsCollectionViewCell.xib in Resources */,
 				42AA1A2D1C239C21004174CA /* Assets.xcassets in Resources */,
 				420F35661C31E25E00864B22 /* SettingsTableViewCell.xib in Resources */,
 				42FA1C181C49ADAC0019C48A /* SettingsPage.plist in Resources */,
@@ -449,7 +459,9 @@
 				42AA1A791C28D98F004174CA /* CategoryModel.swift in Sources */,
 				427645C61CB9A4F500A6D831 /* AFImageViewer.m in Sources */,
 				4276459D1CB43BE100A6D831 /* SWRevealViewController.m in Sources */,
+				42528BD21CCC1B150014935A /* FavsCollectionViewCell.swift in Sources */,
 				420F35561C30884B00864B22 /* SwiftLoader.swift in Sources */,
+				42528BCF1CCBDCF00014935A /* FavsViewController.swift in Sources */,
 				42AA1A621C276BD3004174CA /* MenuTableCell.swift in Sources */,
 				42AA1A771C28C332004174CA /* ParseFetcher.swift in Sources */,
 				420F35611C30C5AF00864B22 /* SettingsViewController.swift in Sources */,

@@ -79,6 +79,18 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 if let cellText = (data["cellItems"] as! NSArray)[indexPath.row] as? String {
                     cell.cellLable.text = cellText
                     cell.cellTextField.placeholder = cellText
+                    //populating textfields
+                    if cellText == "Full Name" {
+                        //Add name from defualts
+                    }else if cellText == "Email" {
+                        //Add email from defaults
+                       if let email = userDefaults.objectForKey("username") as? String {
+                            cell.cellTextField.text = email
+                        }
+                    }else {
+                        //Add phone number from defaults
+                    }
+                    
                     cell.cellTextField.delegate = self
                     if !isEditable{
                         //Disable user interaction when edit not enabled
@@ -223,22 +235,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 if userExists {
                     self.userDefaults.setObject(email, forKey: "username")
                 }else {
-                    //Sign up new user
-                    let newUser = PFUser()
-                    newUser.email = email
-                    if let _ = name {
-                        newUser.setObject(name!, forKey: "Name")
-                    }
-                    
-                    if let _ = phone {
-                        newUser.setObject(phone!, forKey: "Phone")
-                    }
-                    
-                    ParseFetcher.sharedInstance.createUser(newUser, completion: { (status) in
-                        if status{
-                            self.userDefaults.setObject(newUser.email, forKey: "username")
-                        }
-                    })
+                    //Signup User
+                    self.signUpUser(email!, name: name, phone: phone)
                 }
             }
         }
@@ -258,12 +256,35 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         }else {
             isEditable = false
             sender.title = "Edit"
+            self.tableView.endEditing(true)
         }
     }
     
     func openInSafari() {
         let url = NSURL(string: "http://nravichan.paperplane.io/#about")
         UIApplication.sharedApplication().openURL(url!)
+    }
+    
+    //Sign up new user
+    func signUpUser(email: String, name: String?, phone: String?) {
+        let newUser = PFUser()
+        newUser.email = email
+        newUser.username = email
+        newUser.password = "password"
+        if let _ = name {
+            newUser.setObject(name!, forKey: "Name")
+        }
+        
+        if let _ = phone {
+            newUser.setObject(phone!, forKey: "Phone")
+        }
+        
+        ParseFetcher.sharedInstance.createUser(newUser, completion: { (status) in
+            if status{
+                //Persist user email after signup
+                self.userDefaults.setObject(newUser.email, forKey: "username")
+            }
+        })
     }
 
 }

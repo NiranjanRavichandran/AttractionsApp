@@ -47,7 +47,7 @@ public class Reachability: NSObject {
             blurredView.backgroundColor = UIColor.redColor()
             blurredView.tag = 100
             
-            errorMessage.numberOfLines = 2
+            errorMessage.numberOfLines = 0
             errorMessage.text = "Oops! Please check your internet connection and try again."
             errorMessage.textColor = UIColor.whiteColor()
             errorMessage.textAlignment = NSTextAlignment.Center

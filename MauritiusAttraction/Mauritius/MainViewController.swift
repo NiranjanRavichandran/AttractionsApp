@@ -91,6 +91,8 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
                 if let firstItem = self.beachArray.first {
                     self.selectedObject = self.beachDict[firstItem]
                 }
+            }else {
+                self.errorMessageView()
             }
             
         }
@@ -174,15 +176,16 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
     func errorMessageView() {
         let messageView = UIView(frame: UIScreen.mainScreen().bounds)
         messageView.backgroundColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1.0)
-        let messageLabel = UILabel(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 21))
+        let messageLabel = UILabel(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 25))
         messageLabel.center = messageView.center
-        messageLabel.text = "You do not have any favourites yet!"
+        messageLabel.font = UIFont(name: "Helvetica", size: 18)
+        messageLabel.text = "Coming Soon... Stay Tuned!"
         messageLabel.textColor = UIColor.darkGrayColor()
         messageLabel.textAlignment = .Center
-        let icon = UIImageView(frame: CGRectMake(0, 0, 45, 45))
-        icon.image = UIImage(named: "like-filled.png")
+        let icon = UIImageView(frame: CGRectMake(0, 0, 60, 60))
+        icon.image = UIImage(named: "coming_soon.png")
         icon.center.x = messageView.center.x
-        icon.center.y = messageView.center.y - 40
+        icon.center.y = messageView.center.y - 60
         messageView.addSubview(icon)
         messageView.addSubview(messageLabel)
         
@@ -199,5 +202,8 @@ class MainViewController: UIViewController, UICollectionViewDelegateFlowLayout, 
             }
         }
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        collectionView.frame.size.width = UIScreen.mainScreen().bounds.width
+    }
 }
